@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Cloé Coquart — CC</title>
+  <rect width="64" height="64" rx="14" fill="#252523"/>
+  <g fill="none" stroke-width="5" stroke-linecap="round">
+    <path d="M26 21C22 17 11 18 11 32s11 15 15 11" stroke="#F6F6EA"/>
+    <path d="M52 21C48 17 37 18 37 32s11 15 15 11" stroke="#FF5A37"/>
+  </g>
+</svg>

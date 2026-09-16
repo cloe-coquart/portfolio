@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study : stratégie de contenus premium et génération de leads B2B pour L’Activité Piscine.">
+  <title>L’Activité Piscine — Générer des leads grâce au contenu | Cloé Coquart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#A51F2B">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="L’Activité Piscine — Contenu et acquisition B2B | Cloé Coquart">
+  <meta property="og:description" content="Livres blancs, diffusion multicanale et suivi des performances d’un dispositif de contenu B2B.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    :root{
+      --cream:#F6F6EA;
+      --cream-soft:#F2ECE5;
+      --paper:#FFFDF8;
+      --dark:#252523;
+      --dark-soft:#55554F;
+      --red:#A51F2B;
+      --red-bright:#E63A3F;
+      --red-soft:#D8A2A0;
+      --rose:#F2D7D2;
+      --highlight-red:#F7E3E1;
+      --pomelo-orange:#F04B23;
+      --line:rgba(37,37,35,.15);
+      --serif:'Fraunces',serif;
+      --sans:'Poppins',sans-serif;
+      --shadow:0 22px 55px rgba(37,37,35,.11);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--dark);font-family:var(--sans);line-height:1.5;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit}
+    ul{list-style:none}
+    .wrap{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+    .section{padding:clamp(76px,9vw,112px) 0;scroll-margin-top:145px}
+    .section-label{display:block;margin-bottom:14px;color:var(--red);font-size:.76rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase}
+    .section-title{max-width:850px;font:500 clamp(2rem,4.5vw,3.15rem)/1.08 var(--serif);letter-spacing:-.02em}
+    .section-intro{max-width:720px;margin-top:18px;color:var(--dark-soft);font-size:1rem}
+    .has-motion .reveal{opacity:0;transform:translateY(28px);transition:opacity .72s ease,transform .72s ease}
+    .has-motion .reveal.is-visible{opacity:1;transform:none}
+
+    /* Navigation */
+    header{position:sticky;top:0;z-index:100;background:rgba(246,246,234,.88);border-bottom:1px solid transparent;backdrop-filter:blur(12px);transition:border-color .3s ease,box-shadow .3s ease}
+    header.scrolled{border-color:var(--line);box-shadow:0 5px 22px rgba(37,37,35,.06)}
+    .nav{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .logo{font:600 1.3rem var(--serif);letter-spacing:-.01em}
+    .logo span{color:var(--red)}
+    .nav-links{display:flex;align-items:center;gap:35px}
+    .nav-links a:not(.contact-btn){position:relative;font-size:.91rem}
+    .nav-links a:not(.contact-btn)::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--red);transition:width .25s ease}
+    .nav-links a:not(.contact-btn):hover::after{width:100%}
+    .contact-btn{padding:12px 22px;border-radius:100px;background:var(--dark);color:var(--cream);font-size:.86rem;font-weight:500;transition:background .25s ease,transform .25s ease,box-shadow .25s ease}
+    .contact-btn:hover{background:var(--red);transform:translateY(-2px);box-shadow:0 9px 24px rgba(165,31,43,.28)}
+    .nav-toggle{display:none;border:0;background:none;cursor:pointer}
+    .nav-toggle span{display:block;width:27px;height:2px;margin:5px 0;border-radius:2px;background:var(--dark);transition:transform .3s ease,opacity .3s ease}
+
+    /* Hero */
+    .project-hero{padding:clamp(52px,6vw,78px) 0 0}
+    .hero-layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(420px,1.08fr);gap:54px;align-items:center}
+    .hero-copy{min-width:0}
+    .breadcrumb{display:flex;gap:8px;margin-bottom:22px;color:var(--red);font-size:.76rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+    .breadcrumb a{color:var(--dark-soft);font-weight:500;letter-spacing:0;text-transform:none;transition:color .2s ease}
+    .breadcrumb a:hover{color:var(--red)}
+    .project-title{max-width:760px;font:500 clamp(2.8rem,6.5vw,5rem)/.98 var(--serif);letter-spacing:-.035em}
+    .project-lede{max-width:650px;margin-top:25px;color:var(--dark-soft);font:500 clamp(1.05rem,2vw,1.32rem)/1.45 var(--serif)}
+    .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;padding:30px 0 0;border-top:1px solid var(--line)}
+    .meta-grid dt{margin-bottom:7px;color:var(--red);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+    .meta-grid dd{font-size:.91rem;font-weight:500}
+    .hero-stage{position:relative;display:grid;place-items:center;aspect-ratio:3/2;border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#E9D0CB 0%,#B33A43 55%,#71131D 100%);box-shadow:var(--shadow)}
+    .hero-stage::before,.hero-stage::after{content:'';position:absolute;border:1px solid rgba(255,255,255,.2);border-radius:50%}
+    .hero-stage::before{width:430px;height:430px;right:-160px;top:-180px}
+    .hero-stage::after{width:260px;height:260px;left:-90px;bottom:-120px}
+    .hero-project-image{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.8,.2,1),filter .45s ease}
+    .hero-stage:hover .hero-project-image{transform:scale(1.035);filter:saturate(1.05)}
+    .hero-video-label{position:absolute;z-index:3;left:25px;bottom:25px;padding:9px 14px;border-radius:100px;background:rgba(37,37,35,.86);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.05em;backdrop-filter:blur(8px)}
+    .hero-caption{grid-column:2;margin:14px 0 0;color:var(--dark-soft);font-size:.78rem;font-style:italic}
+
+    /* Reusable media slots */
+    .media-slot{position:relative;overflow:hidden;display:grid;place-items:center;min-height:380px;border-radius:20px;background:var(--cream-soft);border:1px solid var(--line)}
+    .media-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .45s ease}
+    .media-slot:hover img{transform:scale(1.055);filter:drop-shadow(0 20px 18px rgba(37,37,35,.13))}
+    .media-fallback{display:grid;place-items:center;gap:12px;text-align:center;padding:28px;color:var(--dark-soft)}
+    .media-fallback svg{width:44px;height:44px;opacity:.45}
+    .media-fallback strong{font:500 1.05rem var(--serif)}
+    .media-fallback code{max-width:100%;padding:6px 10px;border-radius:7px;background:rgba(37,37,35,.07);font-size:.68rem;word-break:break-all}
+    .media-slot.has-media .media-fallback{opacity:0;visibility:hidden;transition:opacity .2s ease}
+
+    /* Skills marquee */
+    .marquee{margin-top:70px;padding:20px 0;background:var(--dark);color:var(--cream);overflow:hidden;white-space:nowrap}
+    .marquee-track{display:inline-flex;will-change:transform}
+    .marquee span{padding:0 18px;font-size:.95rem;font-weight:500;letter-spacing:.055em;text-transform:uppercase}
+    .marquee .dot{padding:0;color:var(--red-bright)}
+
+    /* Navigation du projet */
+    .case-nav-shell{position:sticky;top:80px;z-index:90;border-bottom:1px solid var(--line);background:rgba(255,253,248,.9);backdrop-filter:blur(16px)}
+    .case-nav{display:flex;align-items:center;gap:7px;overflow-x:auto;padding:11px 0;scrollbar-width:none}
+    .case-nav::-webkit-scrollbar{display:none}
+    .case-nav a{flex:0 0 auto;padding:9px 14px;border-radius:100px;color:var(--dark-soft);font-size:.69rem;font-weight:600;letter-spacing:.045em;transition:background .25s ease,color .25s ease,transform .25s ease}
+    .case-nav a:hover,.case-nav a:focus-visible,.case-nav a.active{background:var(--dark);color:#fff;outline:none;transform:translateY(-1px)}
+    .case-nav a.active{background:var(--red)}
+
+    /* Context */
+    .context-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:68px;align-items:center}
+    .context-copy h2{font:500 clamp(2rem,4vw,2.85rem)/1.1 var(--serif)}
+    .context-copy>p{margin-top:18px;color:var(--dark-soft)}
+    .challenge{margin-top:30px;padding:25px 26px;border-left:4px solid var(--red);border-radius:0 14px 14px 0;background:var(--cream-soft)}
+    .challenge strong{display:block;margin-bottom:8px;color:var(--red);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+    .challenge p{color:var(--dark-soft);font-size:.92rem}
+    .context-media{min-height:600px;background:linear-gradient(145deg,#F2E8DF,#E2D9D0)}
+
+    /* Strategy / white papers */
+    .strategy{background:#E8E9E6}
+    .papers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+    .paper-card{position:relative;min-width:0;border:1px solid rgba(37,37,35,.13);border-radius:23px;overflow:hidden;background:rgba(255,253,248,.7);box-shadow:0 10px 32px rgba(37,37,35,.045);transition:transform .42s cubic-bezier(.2,.8,.2,1),background .35s ease,box-shadow .42s ease,border-color .35s ease}
+    .paper-card::before{content:'';position:absolute;z-index:4;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--red),var(--red-bright));transform:scaleX(0);transform-origin:left;transition:transform .42s cubic-bezier(.2,.8,.2,1)}
+    .paper-card:hover{transform:translateY(-11px) scale(1.012);background:var(--paper);border-color:rgba(165,31,43,.3);box-shadow:0 26px 55px rgba(37,37,35,.13)}
+    .paper-card:hover::before{transform:scaleX(1)}
+    .paper-media{height:390px;border:0;border-radius:0;border-bottom:1px solid rgba(37,37,35,.1);background:radial-gradient(circle at 50% 38%,#FFFDF8 0,#EEEDE8 68%,#E0E1DE 100%)}
+    .paper-media img{padding:26px;transition:transform .62s cubic-bezier(.2,.8,.2,1),filter .45s ease}
+    .paper-card:hover .paper-media img{transform:translateY(-7px) scale(1.075);filter:drop-shadow(0 24px 17px rgba(37,37,35,.16))}
+    .paper-copy{position:relative;padding:22px 24px 25px;transition:transform .35s ease}
+    .paper-card:hover .paper-copy{transform:translateY(-2px)}
+    .paper-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;color:var(--red);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+    .paper-index{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--rose);font-family:var(--serif);font-size:.78rem;letter-spacing:0}
+    .paper-copy h3{color:var(--red);font:500 1.05rem var(--serif)}
+    .paper-copy p{margin-top:8px;color:var(--dark-soft);font-size:.8rem}
+    .papers-more{display:flex;align-items:center;justify-content:center;margin-top:24px;color:var(--red);font-size:.83rem;font-weight:600}
+
+    /* Distribution */
+    .channels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+    .channel-card{min-height:225px;padding:28px 22px;border:1px solid rgba(37,37,35,.35);border-radius:17px;background:var(--paper);text-align:center;transition:transform .35s ease,background .35s ease,color .35s ease,box-shadow .35s ease,border-color .35s ease}
+    .channel-card:hover{transform:translateY(-9px);background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 20px 46px rgba(165,31,43,.25)}
+    .channel-icon{display:grid;place-items:center;width:62px;height:62px;margin:0 auto 20px;border-radius:16px;background:var(--rose);color:var(--red);font-size:1.35rem;transition:transform .35s ease,background .35s ease,color .35s ease}
+    .channel-icon img{width:45px;height:45px;object-fit:contain;transition:transform .35s ease}
+    .channel-card:hover .channel-icon{transform:scale(1.12);background:rgba(255,255,255,.17);color:#fff}
+    .channel-card:hover .channel-icon img{transform:scale(1.12)}
+    .channel-card h3{font-size:1rem}
+    .channel-card p{margin-top:11px;color:var(--dark-soft);font-size:.81rem;transition:color .3s ease}
+    .channel-card:hover p{color:rgba(255,255,255,.82)}
+    /* Funnel */
+    .funnel{background:var(--dark);color:var(--cream)}
+    .funnel .section-label{color:var(--red-soft)}
+    .funnel .section-intro{color:rgba(246,246,234,.7)}
+    .funnel-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:44px}
+    .funnel-step{position:relative;padding:27px 20px;border:1px solid rgba(255,255,255,.18);border-radius:15px;background:rgba(255,255,255,.045);cursor:help;transition:transform .3s ease,background .3s ease,border-color .3s ease,box-shadow .3s ease}
+    .funnel-step:hover{transform:translateY(-7px);background:var(--red);border-color:var(--red)}
+    .funnel-step::before{content:attr(data-tip);position:absolute;z-index:20;left:50%;top:calc(100% + 10px);width:min(245px,calc(100vw - 34px));padding:20px 15px 13px;background:var(--paper);color:var(--dark);font-size:.67rem;font-weight:400;line-height:1.45;text-align:left;box-shadow:0 15px 35px rgba(0,0,0,.24);clip-path:polygon(0 8px,calc(50% - 8px) 8px,50% 0,calc(50% + 8px) 8px,100% 8px,100% 100%,0 100%);opacity:0;pointer-events:none;transform:translate(-50%,-5px) scale(.96);transition:opacity .2s ease,transform .25s ease}
+    .funnel-step:hover::before,.funnel-step:focus-visible::before{opacity:1;transform:translate(-50%,0) scale(1)}
+    .funnel-step:focus-visible{outline:2px solid var(--red-soft);outline-offset:3px}
+    .funnel-step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:50%;z-index:3;color:var(--red-soft);font-size:1.1rem;transform:translateY(-50%)}
+    .funnel-num{display:block;margin-bottom:18px;color:var(--red-soft);font:italic 500 1.08rem var(--serif)}
+    .funnel-step h3{font-size:.88rem;transform-origin:left center;transition:transform .3s ease}
+    .funnel-step p{margin-top:8px;color:rgba(246,246,234,.65);font-size:.72rem;transition:color .3s ease,transform .3s ease}
+    .funnel-step:hover h3{transform:scale(1.07)}
+    .funnel-step:hover p{color:rgba(255,255,255,.86);transform:translateY(2px)}
+
+    /* Campaign */
+    .campaign{background:var(--cream-soft)}
+    .campaign-grid{display:grid;gap:90px;margin-top:55px}
+    .campaign-row{display:grid;grid-template-columns:.7fr 1.3fr;gap:58px;align-items:center}
+    .campaign-row:nth-child(even){grid-template-columns:1.3fr .7fr}
+    .campaign-row:nth-child(even) .campaign-copy{order:2}
+    .campaign-copy{padding:34px;border-radius:18px;background:var(--paper);box-shadow:0 12px 35px rgba(37,37,35,.055);transition:transform .35s ease,box-shadow .35s ease}
+    .campaign-copy:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+    .campaign-num{display:block;color:var(--red-bright);font:500 2rem var(--serif)}
+    .campaign-copy h3{margin-top:10px;color:var(--red);font:500 1.45rem var(--serif)}
+    .campaign-copy p{margin-top:13px;color:var(--dark-soft);font-size:.92rem}
+    .campaign-media{min-height:520px;border:0;background:transparent}
+
+    .campaign-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;margin-top:52px}
+    .showcase-card{position:relative;overflow:hidden;border-radius:22px;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 38px rgba(37,37,35,.07);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease,border-color .4s ease}
+    .showcase-card:hover{transform:translateY(-9px);border-color:rgba(165,31,43,.3);box-shadow:0 26px 60px rgba(37,37,35,.14)}
+    .showcase-card.landing,.showcase-card.linkedin,.showcase-card.facebook{grid-column:span 4}
+    .showcase-card.email{grid-column:1/-1}
+    .showcase-media{position:relative;display:grid;place-items:center;overflow:hidden;min-height:330px;background:linear-gradient(145deg,#EEE6DF,#E3D8D0)}
+    .showcase-card.landing .showcase-media,.showcase-card.email .showcase-media{min-height:0;aspect-ratio:1}
+    .showcase-media img{width:100%;height:100%;max-height:630px;object-fit:contain;padding:22px;transition:transform .58s cubic-bezier(.2,.8,.2,1),filter .4s ease}
+    .showcase-media video{display:block;width:100%;height:100%;object-fit:cover;background:var(--dark);transition:transform .58s cubic-bezier(.2,.8,.2,1),filter .4s ease}
+    .showcase-card:hover .showcase-media img,.showcase-card:hover .showcase-media video{transform:scale(1.055);filter:drop-shadow(0 18px 16px rgba(37,37,35,.15))}
+    .showcase-card.email .showcase-media.newsletter-reader{display:block;min-height:0;aspect-ratio:auto;background:#e9e9e9}
+    .newsletter-reader-head{min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 16px;background:var(--paper);border-bottom:1px solid rgba(165,31,43,.18)}
+    .newsletter-reader-title{display:flex;align-items:center;gap:9px;min-width:0;color:var(--dark-soft);font-size:.69rem}
+    .newsletter-reader-badge{flex:none;padding:7px 11px;border-radius:100px;background:var(--red);color:#fff;font-size:.66rem;font-weight:600;letter-spacing:.05em}
+    .newsletter-scroll-cue{flex:none;display:inline-flex;align-items:center;gap:7px;color:var(--red);font-size:.64rem;font-weight:600;letter-spacing:.035em}
+    .newsletter-scroll-cue::after{content:'↓';display:grid;place-items:center;width:24px;height:24px;border:1px solid currentColor;border-radius:50%;animation:newsletter-cue 1.45s ease-in-out infinite}
+    @keyframes newsletter-cue{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+    .newsletter-reader-window{display:flex;justify-content:center;align-items:flex-start;height:clamp(720px,70vw,860px);padding-inline:16px;overflow:hidden;background:#e9e9e9;box-sizing:border-box}
+    .newsletter-frame{display:block;flex:none;width:680px;height:860px;border:0;background:#e9e9e9;transform:scale(1);transform-origin:top center}
+    .showcase-copy{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:24px 25px;border-top:1px solid var(--line)}
+    .showcase-num{color:var(--red-bright);font:500 1.65rem var(--serif)}
+    .showcase-copy h3{color:var(--red);font:500 1.15rem var(--serif)}
+    .showcase-copy p{margin-top:5px;color:var(--dark-soft);font-size:.78rem}
+
+    .performance-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+    .performance-card{position:relative;overflow:visible;min-height:170px;padding:22px;border:1px solid var(--line);border-radius:17px;background:var(--paper);cursor:help;transition:transform .35s ease,background .35s ease,color .35s ease,box-shadow .35s ease,border-color .35s ease}
+    .performance-card::before{content:attr(data-tip);position:absolute;z-index:30;left:50%;bottom:calc(100% + 10px);width:min(235px,calc(100vw - 34px));padding:12px 14px 20px;background:var(--dark);color:#fff;font-size:.67rem;font-weight:400;line-height:1.45;text-align:left;box-shadow:0 14px 32px rgba(37,37,35,.24);clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),calc(50% + 8px) calc(100% - 8px),50% 100%,calc(50% - 8px) calc(100% - 8px),0 calc(100% - 8px));opacity:0;pointer-events:none;transform:translate(-50%,5px) scale(.96);transition:opacity .2s ease,transform .25s ease}
+    .performance-card:hover::before,.performance-card:focus-visible::before{opacity:1;transform:translate(-50%,0) scale(1)}
+    .performance-card:hover,.performance-card:focus-visible{z-index:10;transform:translateY(-8px);background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 20px 46px rgba(165,31,43,.24);outline:none}
+    .performance-card:nth-child(even):hover,.performance-card:nth-child(even):focus-visible{background:var(--dark);border-color:var(--dark)}
+    .performance-label{color:var(--dark-soft);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;transition:color .3s ease}
+    .performance-card:hover .performance-label,.performance-card:focus-visible .performance-label{color:rgba(255,255,255,.7)}
+    .performance-value{margin-top:22px;font:600 2.2rem/1 var(--serif)}
+    .performance-note{margin-top:8px;color:var(--dark-soft);font-size:.7rem;transition:color .3s ease}
+    .performance-card:hover .performance-note,.performance-card:focus-visible .performance-note{color:rgba(255,255,255,.7)}
+    .performance-spark{height:28px;display:flex;align-items:flex-end;gap:4px;margin-top:13px}
+    .performance-spark span{flex:1;height:var(--h);border-radius:3px 3px 0 0;background:var(--red);opacity:.28;transition:height .35s ease,background .35s ease,opacity .35s ease}
+    .performance-card:hover .performance-spark span,.performance-card:focus-visible .performance-spark span{height:calc(var(--h) + 7%);background:#fff;opacity:.86}
+
+    /* KPI */
+    .kpi-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:55px;align-items:start;margin-bottom:46px}
+    .kpi-head ul li{padding:9px 0;border-bottom:1px solid var(--line);color:var(--dark-soft);font-size:.9rem}
+    .kpi-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:24px}
+    .kpi-card{position:relative;min-width:0;padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--paper);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+    .kpi-card:hover{transform:translateY(-5px);border-color:rgba(165,31,43,.35);box-shadow:var(--shadow)}
+    .kpi-kicker{color:var(--red);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+    .kpi-card h3{margin:6px 0 22px;font:500 1.45rem var(--serif)}
+    .chart-wrap{width:100%;overflow:visible}
+    .chart-wrap svg{display:block;width:100%;height:auto;overflow:visible}
+    .axis{stroke:var(--line);stroke-width:1}
+    .axis-text{fill:var(--dark-soft);font:10px var(--sans)}
+    .bar{transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .2s ease,filter .2s ease;cursor:crosshair}
+    .kpi-card.is-visible .bar{transform:scaleY(1)}
+    .bar:hover{opacity:1;filter:brightness(1.12) drop-shadow(0 8px 7px rgba(37,37,35,.18))}
+    .chart-wrap.has-active .bar:not(.active){opacity:.27;filter:saturate(.65)}
+    .chart-wrap .bar.active{opacity:1;filter:brightness(1.07) drop-shadow(0 8px 7px rgba(37,37,35,.2))}
+    .chart-metric-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:-7px 0 15px}
+    .chart-metric{font-family:var(--serif);font-size:1.35rem}
+    .chart-growth{padding:6px 10px;border-radius:100px;background:rgba(165,31,43,.1);color:var(--red);font-size:.66rem;font-weight:600}
+    .chart-note{margin-top:15px;color:var(--dark-soft);font-size:.68rem}
+    .chart-key{display:grid;grid-template-columns:repeat(2,1fr);gap:7px 14px;margin-top:18px}
+    .chart-key li{display:flex;gap:8px;padding:7px 8px;border-radius:9px;color:var(--dark-soft);font-size:.68rem;transition:background .2s ease,transform .2s ease}
+    .chart-key li:hover,.chart-key li.active{background:var(--highlight-red);transform:translateX(3px)}
+    .chart-key b{color:var(--red)}
+    @media(min-width:961px){
+      .editorial-card{display:flex;flex-direction:column;padding:34px}
+      .editorial-card h3{margin:7px 0 25px;font-size:1.65rem}
+      .editorial-card .chart-metric-row{margin:-5px 0 18px}
+      .editorial-card .chart-metric{font-size:1.55rem}
+      .editorial-card .chart-growth{padding:7px 12px;font-size:.72rem}
+      .editorial-card .chart-wrap{width:106%;margin-inline:-3%}
+      .editorial-card .chart-key{gap:9px 16px;margin-top:22px}
+      .editorial-card .chart-key li{padding:9px 10px;font-size:.75rem;line-height:1.35}
+      .editorial-card .chart-note{margin-top:auto;padding-top:22px;font-size:.74rem}
+    }
+    .donut-stack{display:grid;gap:24px}
+    .donut-card{display:block}
+    .donut-canvas-wrap{position:relative;width:min(100%,210px);height:210px;margin:0 auto 14px}
+    .donut-canvas-wrap canvas{width:100%!important;height:100%!important}
+    .donut-center{position:absolute;left:50%;top:50%;width:48%;text-align:center;transform:translate(-50%,-50%);pointer-events:none}
+    .donut-center span{display:block;color:var(--dark-soft);font-size:.56rem;line-height:1.25}
+    .donut-center strong{display:block;margin-top:3px;font:600 1.4rem var(--serif)}
+    .donut-legend{display:grid;gap:5px}
+    .donut-item{display:grid;grid-template-columns:9px 1fr auto;gap:8px;align-items:center;padding:8px 9px;border-radius:10px;color:var(--dark-soft);font-size:.68rem;cursor:pointer;transition:background .2s ease,transform .2s ease}
+    .donut-item:hover,.donut-item:focus-visible,.donut-item.active{background:var(--highlight-red);transform:translateX(4px);outline:none}
+    .donut-item i{width:8px;height:8px;border-radius:50%}
+    .donut-item b{color:var(--dark);font:600 .8rem var(--serif)}
+
+    /* Skills / conclusion */
+    .skills{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+    .skill{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;border:1px solid var(--line);border-radius:100px;background:var(--cream-soft);font-size:.8rem;transition:transform .25s ease,background .25s ease,color .25s ease,border-color .25s ease}
+    .skill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--red)}
+    .skill:hover{transform:translateY(-4px);background:var(--red);color:#fff;border-color:var(--red)}
+    .skill:hover::before{background:#fff}
+    .conclusion{padding-top:0}
+    .conclusion-card{padding:48px;border-radius:22px;background:var(--cream-soft)}
+    .conclusion-card h2{font:500 1.65rem var(--serif)}
+    .conclusion-card p{max-width:760px;margin-top:14px;color:var(--dark-soft)}
+
+    /* Footer navigation */
+    .project-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:30px 0}
+    .project-nav a{display:flex;align-items:center;gap:8px;color:var(--dark-soft);font-size:.82rem;font-weight:500;transition:gap .2s ease,color .2s ease}
+    .project-nav a:hover{gap:12px;color:var(--red)}
+    .next-project{padding:0 0 65px}
+    .next-card{position:relative;overflow:hidden;display:block;padding:60px 32px;border-radius:23px;background:var(--cream-soft);text-align:center;box-shadow:0 14px 34px rgba(37,37,35,.06);transition:background .4s ease,color .35s ease,transform .42s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease}
+    .next-card::before{content:'';position:absolute;width:260px;height:260px;right:-120px;bottom:-180px;border-radius:50%;background:rgba(240,75,35,.1);transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
+    .next-card:hover{background:var(--dark);color:var(--cream);transform:translateY(-6px) scale(1.012);box-shadow:0 25px 58px rgba(37,37,35,.2)}
+    .next-card:hover::before{transform:scale(1.5);opacity:.32}
+    .next-card span{position:relative;z-index:1;color:var(--pomelo-orange);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+    .next-card h2{position:relative;z-index:1;margin:13px 0 25px;font:500 clamp(1.8rem,4vw,2.7rem) var(--serif)}
+    .next-button{display:inline-flex!important;align-items:center;gap:8px;padding:12px 22px;border-radius:100px;background:var(--pomelo-orange);color:#fff!important;letter-spacing:0!important;text-transform:none!important;transition:background .25s ease,transform .25s ease,box-shadow .25s ease}
+    .next-card:hover .next-button{background:var(--pomelo-orange);transform:translateY(-2px) scale(1.04);box-shadow:0 12px 28px rgba(240,75,35,.3)}
+    footer{padding:36px 0;text-align:center;color:var(--dark-soft);font-size:.78rem}
+
+    /* Tooltip and progress */
+    .scroll-progress{position:fixed;top:0;left:0;z-index:300;width:0;height:3px;background:var(--red-bright);pointer-events:none}
+    .data-tooltip{position:fixed;z-index:400;max-width:230px;padding:10px 13px;border-radius:10px;background:var(--dark);color:#fff;font-size:.72rem;line-height:1.4;opacity:0;pointer-events:none;transform:translate(-50%,calc(-100% - 13px)) scale(.94);transition:opacity .15s ease,transform .15s ease;box-shadow:0 10px 28px rgba(37,37,35,.2)}
+    .data-tooltip.visible{opacity:1;transform:translate(-50%,calc(-100% - 13px)) scale(1)}
+    #resultats{background:#FBF7F1}
+
+    @media(max-width:960px){
+      .hero-layout{grid-template-columns:1fr;gap:38px}.hero-caption{grid-column:auto}
+      .papers-grid{grid-template-columns:1fr 1fr}.paper-card:last-child{grid-column:1/-1;max-width:560px;margin:auto;width:100%}
+      .channels-grid{grid-template-columns:1fr 1fr}.funnel-flow{grid-template-columns:1fr 1fr}.funnel-step:last-child{grid-column:1/-1}.funnel-step::after{display:none}
+      .showcase-card.landing,.showcase-card.linkedin,.showcase-card.facebook{grid-column:span 6}.showcase-card.email{grid-column:1/-1}
+      .newsletter-reader-window{height:760px}
+      .kpi-layout{grid-template-columns:1fr}.donut-stack{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:820px){
+      .nav-links{position:fixed;top:0;right:0;width:min(82vw,330px);height:100vh;padding:100px 32px 32px;flex-direction:column;align-items:flex-start;background:var(--cream);box-shadow:-12px 0 35px rgba(0,0,0,.09);transform:translateX(105%);transition:transform .35s ease}
+      .nav-links.open{transform:none}.nav-toggle{display:block;z-index:200}.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.nav-toggle.open span:nth-child(2){opacity:0}.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+      .meta-grid{grid-template-columns:1fr 1fr}.context-grid{grid-template-columns:1fr}.context-media{min-height:540px;max-width:580px;width:100%;margin:auto}
+      .campaign-row,.campaign-row:nth-child(even){grid-template-columns:1fr;gap:26px}.campaign-row:nth-child(even) .campaign-copy{order:0}.campaign-media{min-height:460px}
+      .kpi-head{grid-template-columns:1fr;gap:25px}
+    }
+    @media(max-width:580px){
+      .wrap{width:min(100% - 28px,1160px)}.section{padding:68px 0}.nav{min-height:68px}.project-hero{padding-top:45px}.project-title{font-size:2.75rem}.project-lede{font-size:1.08rem}.meta-grid{grid-template-columns:1fr;gap:20px}.hero-stage{border-radius:18px}.hero-video-label{left:18px;bottom:18px}.marquee{margin-top:50px;padding:16px 0}.marquee span{font-size:.82rem;padding:0 13px}.case-nav-shell{top:68px}.case-nav a{padding:8px 12px;font-size:.64rem}
+      .context-grid{gap:35px}.context-media{min-height:430px}.papers-grid{grid-template-columns:1fr}.paper-card:last-child{grid-column:auto}.paper-media{height:360px}.channels-grid{grid-template-columns:1fr}
+      .funnel-flow{grid-template-columns:1fr}.funnel-step:last-child{grid-column:auto}.campaign-grid{gap:65px}.campaign-copy{padding:27px 23px}.campaign-media{min-height:370px}
+      .campaign-bento{grid-template-columns:1fr}.showcase-card.landing,.showcase-card.email,.showcase-card.linkedin,.showcase-card.facebook{grid-column:auto}.showcase-card.landing .showcase-media,.showcase-card.email .showcase-media{min-height:0}.showcase-media{min-height:350px}.showcase-copy{padding:20px}.newsletter-reader-window{height:620px}.newsletter-frame{width:100%;height:100%;transform:none}
+      .performance-strip{grid-template-columns:1fr 1fr}.donut-stack{grid-template-columns:1fr}.donut-legend{text-align:left}.kpi-card{padding:22px 17px}.chart-key{grid-template-columns:1fr}.conclusion-card{padding:35px 25px}.project-nav{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:400px){.performance-strip{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.has-motion .reveal{opacity:1;transform:none}}
+    /* Lecture, interactions sobres et cohérence avec les autres projets. */
+    :focus-visible{outline:3px solid var(--red);outline-offset:5px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+    .skip-link{position:fixed;top:12px;left:12px;z-index:500;padding:12px 18px;background:var(--dark);color:#fff;border-radius:8px;transform:translateY(-160%)}
+    .skip-link:focus{transform:none}
+    .logo span{color:#FF5A37}
+    .nav-links{gap:24px}
+    .nav-links a[aria-current="page"]::after{width:100%}
+    .nav-toggle{min-width:44px;min-height:44px;padding:8px}
+    .has-motion .project-hero .reveal{opacity:1;transform:none}
+    .text-link{display:inline-block;position:relative;padding:10px 0;font-size:.875rem;font-weight:500}
+    .text-link::after{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:currentColor;transform:scaleX(.25);transform-origin:left;transition:transform .3s ease}
+    .text-link:is(:hover,:focus-visible)::after{transform:scaleX(1)}
+    .marquee{position:relative}
+    .marquee-toggle{position:absolute;z-index:2;right:14px;top:50%;transform:translateY(-50%);border:1px solid rgba(255,255,255,.5);border-radius:100px;padding:10px 16px;background:var(--dark);color:#fff;font-size:.875rem;cursor:pointer}
+    .case-nav a{min-height:44px;display:inline-flex;align-items:center;font-size:.8rem}
+    .case-nav a:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+    .paper-card::before,.next-card::before{display:none}
+    .paper-card:hover,.paper-card:hover .paper-copy,.channel-card:hover,.funnel-step:hover,.campaign-copy:hover,.showcase-card:hover,.performance-card:hover,.performance-card:focus-visible,.kpi-card:hover,.next-card:hover{transform:none}
+    .paper-card:hover .paper-media img,.showcase-card:hover .showcase-media img{transform:scale(1.025);filter:none}
+    .channel-card:hover .channel-icon{transform:none}
+    .channel-card:hover .channel-icon img{transform:scale(1.1)}
+    .paper-copy h3,.showcase-copy h3{font-size:1.25rem}
+    .paper-copy p,.channel-card p,.showcase-copy p,.challenge p{font-size:1rem;line-height:1.65}
+    .paper-meta,.newsletter-reader-title,.newsletter-reader-badge,.newsletter-scroll-cue,.performance-label,.performance-note,.chart-note{font-size:.875rem}
+    .paper-meta{letter-spacing:.04em}
+    .newsletter-reader-head{flex-wrap:wrap}
+    .newsletter-open{margin:8px 20px;color:var(--red)}
+    .funnel-step{padding-right:26px}
+    .funnel-step h3{font-size:1rem}
+    .funnel-step p{font-size:.875rem;color:rgba(246,246,234,.85)}
+    .funnel-step:hover h3,.funnel-step:hover p{transform:none}
+    .funnel-step:focus-within{background:var(--red)}
+    .performance-label{display:block;padding-right:18px}
+    .performance-value{font-variant-numeric:tabular-nums}
+    .performance-card:is(:hover,:focus-visible) :is(.performance-label,.performance-note){color:#fff}
+    .funnel-step::before,.performance-card::before{display:none}
+    .info-mark{position:absolute;top:12px;right:12px;display:grid;place-items:center;width:22px;height:22px;border:1px solid currentColor;border-radius:50%;font:italic 500 .8rem var(--serif);opacity:.75}
+    .inline-tip{position:absolute;z-index:50;left:50%;top:calc(100% + 10px);width:min(260px,calc(100vw - 40px));padding:15px 16px;border-radius:12px;background:#64121C;color:#fff;font-size:.875rem;font-weight:400;line-height:1.55;text-align:left;box-shadow:0 15px 35px rgba(37,37,35,.2);opacity:0;visibility:hidden;transform:translate(-50%,-4px);transition:opacity .2s ease,transform .2s ease}
+    .inline-tip::before{content:'';position:absolute;left:0;right:0;top:-12px;height:12px}
+    :is(.funnel-step,.performance-card):is(:hover,:focus-within){z-index:60}
+    :is(.funnel-step,.performance-card):is(:hover,:focus-within) .inline-tip{opacity:1;visibility:visible;transform:translate(-50%,0)}
+    :is(.funnel-step,.performance-card).tip-dismissed .inline-tip{visibility:hidden;opacity:0}
+    .performance-strip:is(:hover,:focus-within){position:relative;z-index:70}
+    :is(.funnel-step,.performance-card):first-child .inline-tip{left:0;transform:translateY(0)}
+    :is(.funnel-step,.performance-card):last-child .inline-tip{left:auto;right:0;transform:translateY(0)}
+    .kpi-layout{grid-template-columns:1fr}
+    .bar-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:center}
+    .editorial-card .chart-wrap{width:100%;margin:0}
+    .bar{transform:none}
+    .bar:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+    .chart-key{grid-template-columns:1fr;margin-top:0;gap:5px}
+    .editorial-card .chart-key{margin-top:0;gap:5px}
+    .chart-key li,.editorial-card .chart-key li{display:block;padding:0}
+    .chart-key button{appearance:none;border:0;background:none;display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:9px 12px;text-align:left;font-size:.875rem;cursor:pointer;border-radius:10px;transition:background .2s ease}
+    .chart-key li:hover{transform:none;background:none}
+    .chart-key button:is(:hover,.active){background:var(--highlight-red)}
+    .chart-key button:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+    .chart-key b{font-variant-numeric:tabular-nums}
+    .donut-stack{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .donut-row{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;align-items:center}
+    .donut-canvas-wrap{width:180px;height:180px;margin:0 auto}
+    .donut-center span{font-size:.75rem}
+    .donut-center strong{color:var(--red);font-size:1.6rem}
+    .donut-item{appearance:none;border:0;background:transparent;width:100%;min-height:44px;text-align:left;font-size:.875rem;gap:9px}
+    .donut-item b{font-size:1rem}
+    .donut-item i{transition:transform .2s ease,box-shadow .2s ease}
+    .donut-item:is(:hover,:focus-visible,.active) i{transform:scale(1.3);box-shadow:0 0 0 4px var(--highlight-red)}
+    .donut-item:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+    .data-table{margin-top:24px;padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+    .data-table summary{padding:6px;cursor:pointer;font-weight:500}
+    .measurement-note{margin-top:16px;color:var(--dark-soft);font-size:.875rem;line-height:1.7}
+    .table-scroll{overflow-x:auto;margin-top:24px}
+    .data-table table{border-collapse:collapse;width:100%;font-size:.875rem}
+    .data-table caption{text-align:left;margin-bottom:12px;font-weight:500;color:var(--red)}
+    .data-table th,.data-table td{padding:12px;text-align:left;border-bottom:1px solid var(--line)}
+    .data-table tbody th{font-weight:400}
+    .data-table td{font-variant-numeric:tabular-nums;white-space:nowrap}
+    .project-contact{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:30px 0;margin-bottom:24px;border-top:1px solid var(--line);text-align:left}
+    .project-contact p{font:500 1.7rem var(--serif);color:var(--dark)}
+    .project-contact>div{display:flex;gap:24px}
+    .back-top{margin-top:16px}
+    @media(max-width:1050px){.donut-stack{grid-template-columns:1fr}.donut-row{grid-template-columns:220px minmax(0,1fr);gap:28px}.donut-canvas-wrap{width:220px;height:220px}}
+    @media(max-width:820px){
+      .bar-layout{grid-template-columns:1fr}
+      .nav-links{visibility:hidden;height:100dvh;overflow-y:auto}
+      .nav-links.open{visibility:visible}
+      body:not(.js-ready) .nav-links{position:static;transform:none;visibility:visible;height:auto;width:100%;padding:14px;box-shadow:none}
+      body:not(.js-ready) .nav{flex-wrap:wrap}
+      body:not(.js-ready) .nav-toggle{display:none}
+    }
+    @media(max-width:580px){
+      .donut-row{grid-template-columns:1fr;gap:20px}
+      .newsletter-reader-title>span:last-child{display:none}
+      .newsletter-reader-window{padding-inline:0}
+      .performance-card .inline-tip,.performance-card:is(:hover,:focus-within) .inline-tip{left:0;right:auto;transform:translateY(0)}
+      .performance-card:nth-child(even) .inline-tip{left:auto;right:0}
+      .funnel-step .inline-tip,.funnel-step:is(:hover,:focus-within) .inline-tip{left:0;right:auto;transform:translateY(0)}
+      .chart-metric-row{align-items:flex-start;flex-direction:column}
+      .hero-caption{font-size:.875rem}
+    }
+  </style>
+
+<style>
+/* === Améliorations UI : sélection de texte et effets des CTA === */
+::selection{background:var(--red-bright);color:var(--cream)}
+
+</style>
+
+<style>
+/* === Lightbox generique pour les visuels zoomables === */
+img.zoomable{cursor:zoom-in;transition:opacity .2s ease}
+img.zoomable:hover{opacity:.92}
+.img-lightbox{position:fixed;inset:0;z-index:800;display:grid;place-items:center;padding:24px;background:rgba(20,20,18,.92);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+.img-lightbox.open{opacity:1;visibility:visible}
+.img-lightbox-inner{position:relative;max-width:min(1100px,92vw);max-height:88vh}
+.img-lightbox-inner img{display:block;max-width:100%;max-height:88vh;border-radius:14px;box-shadow:0 30px 100px rgba(0,0,0,.4)}
+.img-lightbox-close,.img-lightbox-arrow{position:fixed;z-index:3;display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;cursor:pointer;background:rgba(255,255,255,.94);color:var(--dark);box-shadow:0 9px 25px rgba(0,0,0,.2);transition:background .2s ease,color .2s ease,transform .2s ease}
+.img-lightbox-close{top:20px;right:20px}
+.img-lightbox-arrow{top:50%;transform:translateY(-50%)}
+.img-lightbox-prev{left:20px}
+.img-lightbox-next{right:20px}
+.img-lightbox-close:hover,.img-lightbox-arrow:hover{background:var(--red-bright);color:#fff}
+.img-lightbox-count{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;font:500 .75rem var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.35);padding:8px 16px;border-radius:100px}
+@media(max-width:640px){.img-lightbox-arrow{width:40px;height:40px}.img-lightbox-prev{left:10px}.img-lightbox-next{right:10px}.img-lightbox-close{top:10px;right:10px}}
+</style>
+
+<style id="shared-navigation">
+/* Navigation commune : même gabarit sur toutes les pages. */
+:root{--site-header-height:49px;--project-nav-height:35px;--navigation-accent:var(--coral,var(--red,var(--orange-dark,var(--green,#E87550))))}
+body>header{padding:0;position:sticky;top:0;z-index:300;background:rgba(246,246,234,.94);border-bottom:1px solid transparent;backdrop-filter:blur(12px)}
+body>header.scrolled{border-bottom-color:rgba(37,37,35,.12);box-shadow:0 5px 22px rgba(37,37,35,.06)}
+header .wrap.nav{box-sizing:border-box;width:min(1160px,calc(100% - 48px));max-width:1160px;margin-inline:auto;padding:0;height:48px;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:nowrap}
+header .logo{font:600 1.15rem var(--serif);letter-spacing:-.01em;white-space:nowrap;color:#252523}
+header .logo span{color:var(--navigation-accent)}
+header #navLinks{display:flex;align-items:center;gap:20px;flex-wrap:nowrap}
+header #navLinks a{box-sizing:border-box;font-family:var(--sans);letter-spacing:normal;white-space:nowrap}
+header #navLinks a:not(.btn):not(.contact-btn){position:relative;display:inline-flex;align-items:center;min-height:32px;padding:0;color:#252523;font-size:.9rem;font-weight:400;line-height:1.4;text-decoration:none}
+header #navLinks a:not(.btn):not(.contact-btn)::after{content:'';position:absolute;left:0;bottom:3px;height:1px;width:0;background:var(--navigation-accent);transition:width .25s ease}
+header #navLinks a:not(.btn):not(.contact-btn):is(:hover,:focus-visible,[aria-current="page"])::after{width:100%}
+header #navLinks a:is(.btn,.contact-btn){display:inline-flex;align-items:center;justify-content:center;min-height:30px;height:30px;padding:0 15px;border:1px solid transparent;border-radius:100px;background:#252523;color:#F6F6EA;font-size:.85rem;font-weight:500;line-height:1.2;text-decoration:none;transform:none;box-shadow:none;transition:background .25s ease,color .25s ease}
+header #navLinks a:is(.btn,.contact-btn):hover{background:var(--navigation-accent);transform:none;box-shadow:none}
+header #navLinks a:is(.btn,.contact-btn)::after{display:none}
+header #navToggle{display:none;width:44px;height:44px;min-width:44px;min-height:44px;padding:8px;gap:5px;border:0;background:none;cursor:pointer;z-index:302;flex-direction:column;align-items:center;justify-content:center}
+header #navToggle span{display:block;width:27px;height:2px;margin:0;border-radius:2px;background:#252523;transition:transform .25s ease,opacity .25s ease}
+header #navToggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+header #navToggle.open span:nth-child(2){opacity:0}
+header #navToggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+header a:focus-visible,header button:focus-visible{outline:2px solid var(--navigation-accent);outline-offset:4px}
+.case-nav-shell,.case-nav-shell.is-fixed{top:var(--site-header-height);z-index:200;background:rgba(255,253,248,.95);border-bottom:1px solid rgba(37,37,35,.12);backdrop-filter:blur(12px)}
+.case-nav-shell .case-nav{box-sizing:border-box;width:min(1160px,calc(100% - 48px));max-width:1160px;margin-inline:auto;display:flex;align-items:center;gap:5px;padding:4px 0;overflow-x:auto;scrollbar-width:none}
+.case-nav-shell .case-nav a{position:relative;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;height:26px;min-height:26px;padding:0 10px;border:0;border-radius:100px;background:transparent;color:#55554F;font:500 .82rem/1.3 var(--sans);letter-spacing:.025em;text-transform:none;text-decoration:none;white-space:nowrap;transform:none;box-shadow:none;transition:background .25s ease,color .25s ease}
+.case-nav-shell .case-nav a:hover{background:transparent;color:var(--navigation-accent);transform:none}
+.case-nav-shell .case-nav a.active{background:transparent;color:var(--navigation-accent);transform:none;text-shadow:0 2px 5px rgba(37,37,35,.2)}
+.case-nav-shell .case-nav a::after{content:'';position:absolute;left:10px;bottom:2px;width:0;height:1px;background:var(--navigation-accent);transition:width .25s ease}
+.case-nav-shell .case-nav a:is(:hover,:focus-visible)::after{width:calc(100% - 20px)}
+@media(prefers-reduced-motion:reduce){.case-nav-shell .case-nav a::after{transition:none}}
+.case-nav-shell .case-nav a:focus-visible{outline:2px solid var(--navigation-accent);outline-offset:-2px}
+body [id]:is(section,article),#contexte,#missions,#realisations,#resultats,#bilan,#projets,#experiences,#formations,#competences{scroll-margin-top:calc(var(--site-header-height) + var(--project-nav-height) + 20px)}
+.scroll-progress{top:0;z-index:1000;height:3px}
+@media(min-width:901px){
+ header #navLinks{position:static;width:auto;height:auto;max-height:none;padding:0;background:transparent;flex-direction:row;visibility:visible;transform:none;overflow:visible;box-shadow:none}
+}
+@media(max-width:900px){
+ :root{--project-nav-height:39px}
+ body>header{backdrop-filter:none}
+ header .wrap.nav{width:calc(100% - 36px);gap:16px}
+ header #navToggle{display:flex}
+ header #navLinks{position:fixed;top:0;right:0;left:auto;z-index:301;width:min(82vw,330px);height:100vh;height:100dvh;padding:84px 28px 28px;flex-direction:column;align-items:flex-start;gap:18px;background:#F6F6EA;overflow-y:auto;visibility:hidden;transform:translateX(105%);box-shadow:-10px 0 30px rgba(37,37,35,.08);transition:transform .3s ease,visibility .3s ease}
+ header #navLinks.open{visibility:visible;transform:none}
+ header #navLinks a:is(.btn,.contact-btn){height:44px;min-height:44px}
+ .case-nav-shell .case-nav{width:calc(100% - 36px)}
+ .case-nav-shell .case-nav a{height:32px;min-height:32px}
+}
+@media(prefers-reduced-motion:reduce){header #navLinks,header #navLinks a,header #navLinks a::after,.case-nav-shell .case-nav a{transition:none}}
+</style>
+
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header id="siteHeader">
+    <div class="wrap nav">
+      <a href="index.html" class="logo">Cloé <span>COQUART</span></a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+      <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
+        <a href="index.html#projets" aria-current="page">Projets</a>
+        <a href="index.html#experiences">Expériences</a>
+        <a href="index.html#formations">Formations</a>
+        <a href="index.html#competences">Compétences</a>
+        <a href="index.html#contact" class="contact-btn">Me contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="project-hero">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <div class="breadcrumb reveal"><a href="index.html#projets">Projets</a> / Contenu et acquisition B2B</div>
+          <h1 class="project-title reveal">Générer des leads grâce au contenu</h1>
+          <p class="project-lede reveal">Transformer l’expertise d’un média professionnel en contenus premium capables d’attirer, d’informer et de convertir une audience B2B.</p>
+
+          <dl class="meta-grid reveal">
+            <div><dt>Client</dt><dd>L’Activité Piscine</dd></div>
+            <div><dt>Rôle</dt><dd>Content marketing &amp; acquisition</dd></div>
+            <div><dt>Cadre</dt><dd>Alternance aux Éditions Messignac</dd></div>
+            <div><dt>Compétences</dt><dd>Lead gen · Contenu · Email · Social</dd></div>
+          </dl>
+        </div>
+        <div>
+          <div class="hero-stage reveal">
+            <img class="hero-project-image" src="images/optimized/project-2.webp" width="1400" height="968" fetchpriority="high" decoding="async" alt="Vue d’ensemble du projet L’Activité Piscine avec les livres blancs, le site et ses déclinaisons mobiles">
+            <span class="hero-video-label">Vue d’ensemble du projet</span>
+          </div>
+          <p class="hero-caption reveal">Une stratégie de contenus premium pensée pour générer des opportunités B2B.</p>
+        </div>
+      </div>
+
+      <div class="marquee" aria-label="Compétences mobilisées">
+        <div class="marquee-track">
+          <span>Content marketing</span><span class="dot">–</span><span>Lead generation</span><span class="dot">–</span><span>Livres blancs</span><span class="dot">–</span><span>Email marketing</span><span class="dot">–</span><span>Landing pages</span><span class="dot">–</span><span>Acquisition B2B</span><span class="dot">–</span><span>Social media</span><span class="dot">–</span><span>Analyse des KPI</span><span class="dot">–</span>
+          <span>Content marketing</span><span class="dot">–</span><span>Lead generation</span><span class="dot">–</span><span>Livres blancs</span><span class="dot">–</span><span>Email marketing</span><span class="dot">–</span><span>Landing pages</span><span class="dot">–</span><span>Acquisition B2B</span><span class="dot">–</span><span>Social media</span><span class="dot">–</span><span>Analyse des KPI</span><span class="dot">–</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="case-nav-shell">
+      <nav class="wrap case-nav" id="caseNav" aria-label="Navigation dans le projet">
+        <a href="#contexte">Contexte</a>
+        <a href="#strategie">Stratégie</a>
+        <a href="#diffusion">Diffusion</a>
+        <a href="#apercu">Aperçu</a>
+        <a href="#resultats">Résultats</a>
+      </nav>
+    </div>
+
+    <section class="section" id="contexte">
+      <div class="wrap context-grid">
+        <div class="context-media media-slot reveal">
+          <div class="media-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><strong>Aperçu mobile du média</strong><span>Visuel momentanément indisponible</span></div>
+          <img src="images/optimized/lap-site-mobile.webp" width="1000" height="1000" alt="Site de L’Activité Piscine présenté sur mobile" loading="lazy" decoding="async">
+        </div>
+        <div class="context-copy reveal">
+          <span class="section-label">Le contexte</span>
+          <h2>Un média B2B pour les professionnels de la piscine</h2>
+          <p>L’Activité Piscine informe les pisciniers, fabricants et distributeurs, et accompagne les entreprises du secteur dans leur communication.</p>
+          <p>Mon rôle : relier les livres blancs, leur diffusion multicanale et le suivi des performances dans un même parcours d’acquisition.</p>
+          <div class="challenge"><strong>L’enjeu</strong><p>Transformer des contenus utiles aux professionnels en opportunités de contact pour les partenaires du média.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section strategy" id="strategie">
+      <div class="wrap">
+        <span class="section-label reveal">La stratégie</span>
+        <h2 class="section-title reveal">Transformer l’expertise en levier d’acquisition</h2>
+        <p class="section-intro reveal">Une collection de huit livres blancs, chacun construit autour d’une problématique métier précise et pensé comme le point d’entrée d’un parcours de conversion.</p>
+
+        <div class="papers-grid">
+          <article class="paper-card reveal">
+            <div class="paper-media media-slot"><div class="media-fallback"><strong>Filtration &amp; traitement</strong><span>Visuel momentanément indisponible</span></div><img src="images/optimized/lap-livre-blanc-filtration.webp" width="1000" height="1000" alt="Livre blanc sur la filtration et le traitement de l’eau" loading="lazy" decoding="async"></div>
+            <div class="paper-copy"><div class="paper-meta"><span>Guide stratégique</span><span class="paper-index">01</span></div><h3>Filtration &amp; traitement</h3><p>Aider les pisciniers à mieux conseiller leurs clients dans leurs choix d’équipement.</p></div>
+          </article>
+          <article class="paper-card reveal">
+            <div class="paper-media media-slot"><div class="media-fallback"><strong>Robots de piscine</strong><span>Visuel momentanément indisponible</span></div><img src="images/optimized/lap-livre-blanc-robots.webp" width="1000" height="1000" alt="Livre blanc comparatif consacré aux robots de piscine" loading="lazy" decoding="async"></div>
+            <div class="paper-copy"><div class="paper-meta"><span>Guide comparatif</span><span class="paper-index">02</span></div><h3>Robots de piscine</h3><p>Un guide comparatif conçu pour accompagner la recommandation des professionnels.</p></div>
+          </article>
+          <article class="paper-card reveal">
+            <div class="paper-media media-slot"><div class="media-fallback"><strong>Logiciels métier</strong><span>Visuel momentanément indisponible</span></div><img src="images/optimized/lap-livre-blanc-logiciels.webp" width="1000" height="1000" alt="Livre blanc sur les logiciels destinés aux pisciniers" loading="lazy" decoding="async"></div>
+            <div class="paper-copy"><div class="paper-meta"><span>Guide métier</span><span class="paper-index">03</span></div><h3>Logiciels</h3><p>Présenter les outils numériques capables de faciliter le quotidien des pisciniers.</p></div>
+          </article>
+        </div>
+        <p class="papers-more reveal">Trois exemples parmi une collection de huit contenus premium.</p>
+      </div>
+    </section>
+
+    <section class="section" id="diffusion">
+      <div class="wrap">
+        <span class="section-label reveal">Diffusion</span>
+        <h2 class="section-title reveal">Une stratégie déployée sur plusieurs canaux</h2>
+        <div class="channels-grid">
+          <article class="channel-card reveal"><div class="channel-icon"><img src="images/optimized/lap-icone-site-we.webp" width="96" height="96" alt="" loading="lazy" decoding="async"></div><h3>Landing pages</h3><p>Une page dédiée par livre blanc, pensée pour expliquer sa valeur et faciliter le téléchargement.</p></article>
+          <article class="channel-card reveal"><div class="channel-icon"><img src="images/optimized/lap-icone-email.webp" width="96" height="96" alt="" loading="lazy" decoding="async"></div><h3>Emailing</h3><p>Des newsletters ciblées avec un angle éditorial clair et un appel à l’action identifiable.</p></article>
+          <article class="channel-card reveal"><div class="channel-icon"><img src="images/optimized/lap-icone-marketing.webp" width="96" height="96" alt="" loading="lazy" decoding="async"></div><h3>LinkedIn</h3><p>Des publications valorisant l’expertise du média auprès d’une audience professionnelle.</p></article>
+          <article class="channel-card reveal"><div class="channel-icon"><img src="images/optimized/lap-icone-reseaux-sociaux.webp" width="96" height="96" alt="" loading="lazy" decoding="async"></div><h3>Facebook</h3><p>Une diffusion dans les groupes spécialisés afin d’élargir la portée des campagnes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section funnel">
+      <div class="wrap">
+        <span class="section-label reveal">Parcours de conversion</span>
+        <h2 class="section-title reveal">Du sujet métier au lead qualifié</h2>
+        <p class="section-intro reveal">Chaque élément de la campagne joue un rôle précis pour transformer l’intérêt éditorial en prise de contact exploitable.</p>
+        <div class="funnel-flow">
+          <article class="funnel-step reveal" tabindex="0" data-tip="La veille éditoriale et les échanges avec les professionnels font émerger un besoin métier concret à traiter."><span class="funnel-num">01</span><h3>Problématique métier</h3><p>Identifier un besoin concret de l’audience.</p></article>
+          <article class="funnel-step reveal" tabindex="0" data-tip="Le livre blanc apporte une réponse structurée, documentée et directement utile au quotidien des pisciniers."><span class="funnel-num">02</span><h3>Livre blanc</h3><p>Apporter une réponse experte et utile.</p></article>
+          <article class="funnel-step reveal" tabindex="0" data-tip="Une page dédiée présente le sujet, les bénéfices du guide et les informations nécessaires pour rassurer le lecteur."><span class="funnel-num">03</span><h3>Landing page</h3><p>Présenter les bénéfices et rassurer.</p></article>
+          <article class="funnel-step reveal" tabindex="0" data-tip="Un formulaire court recueille les coordonnées professionnelles en échange du téléchargement du contenu premium."><span class="funnel-num">04</span><h3>Formulaire</h3><p>Convertir l’intérêt en téléchargement.</p></article>
+          <article class="funnel-step reveal" tabindex="0" data-tip="Le contact obtenu est qualifié par son intérêt thématique puis transmis comme opportunité aux partenaires concernés."><span class="funnel-num">05</span><h3>Lead</h3><p>Transmettre une opportunité qualifiée.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section campaign" id="apercu">
+      <div class="wrap">
+        <span class="section-label reveal">Aperçu</span>
+        <h2 class="section-title reveal">Quatre formats, un même parcours</h2>
+        <p class="section-intro reveal">De la page de conversion aux prises de parole qui lui apportent du trafic : chaque format accompagne l’audience vers le téléchargement.</p>
+        <div class="campaign-bento">
+          <article class="showcase-card landing reveal">
+            <div class="showcase-media"><img class="zoomable" src="images/optimized/lap-landing-page-couvertures.webp" width="1000" height="1000" alt="Landing page de téléchargement du livre blanc consacré aux couvertures de piscine" loading="lazy" decoding="async"></div>
+            <div class="showcase-copy"><span class="showcase-num">01</span><div><h3>Landing page</h3><p>Une page dédiée qui présente la valeur du guide et transforme l’intérêt en téléchargement.</p></div></div>
+          </article>
+          <article class="showcase-card linkedin reveal">
+            <div class="showcase-media"><img class="zoomable" src="images/optimized/lap-publications-linkedin.webp" width="1000" height="1000" alt="Publications LinkedIn consacrées aux livres blancs" loading="lazy" decoding="async"></div>
+            <div class="showcase-copy"><span class="showcase-num">02</span><div><h3>LinkedIn</h3><p>Une diffusion professionnelle qui valorise l’expertise du média.</p></div></div>
+          </article>
+          <article class="showcase-card facebook reveal">
+            <div class="showcase-media"><img class="zoomable" src="images/optimized/lap-publications-facebook.webp" width="1000" height="1000" alt="Publications Facebook relayant les livres blancs" loading="lazy" decoding="async"></div>
+            <div class="showcase-copy"><span class="showcase-num">03</span><div><h3>Facebook</h3><p>Des relais ciblés pour élargir la portée auprès des communautés métier.</p></div></div>
+          </article>
+          <article class="showcase-card email reveal">
+            <div class="showcase-media newsletter-reader">
+              <div class="newsletter-reader-head">
+                <span class="newsletter-reader-title"><span class="newsletter-reader-badge">Newsletter</span><span>Campagne Livre blanc #9</span></span>
+                <span class="newsletter-scroll-cue">Faites défiler</span>
+              </div>
+              <a class="newsletter-open text-link" href="newsletter-projet-2.html" target="_blank" rel="noopener noreferrer">Ouvrir la newsletter en grand ↗ <span class="sr-only">(nouvel onglet)</span></a>
+              <div class="newsletter-reader-window">
+                <iframe class="newsletter-frame" src="newsletter-projet-2.html" title="Newsletter L’Activité Piscine à faire défiler" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="showcase-copy"><span class="showcase-num">04</span><div><h3>Emailing</h3><p>Un mailing éditorial conçu pour mettre en avant les livres blancs auprès de notre audience professionnelle et encourager leur téléchargement.</p></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resultats">
+      <div class="wrap">
+        <div class="kpi-head reveal">
+          <div><span class="section-label">KPI</span><h2 class="section-title">Analyse &amp; pilotage</h2></div>
+          <ul><li>Suivi des performances</li><li>Analyse des KPI</li><li>Reporting et recommandations</li></ul>
+        </div>
+
+        <div class="performance-strip reveal" aria-label="Résultats clés de la campagne">
+          <article class="performance-card" tabindex="0" data-tip="Une bibliothèque éditoriale conçue pour couvrir les principaux besoins métier"><span class="performance-label">Contenus premium</span><div class="performance-value">8</div><p class="performance-note">livres blancs publiés</p></article>
+          <article class="performance-card" tabindex="0" data-tip="Plus de 8 000 téléchargements générés par l’ensemble du dispositif"><span class="performance-label">Acquisition</span><div class="performance-value">+8 000</div><p class="performance-note">téléchargements cumulés</p></article>
+          <article class="performance-card" tabindex="0" data-tip="LinkedIn représente le premier canal d’acquisition de la campagne"><span class="performance-label">Canal principal</span><div class="performance-value">44 %</div><p class="performance-note">des téléchargements via LinkedIn</p></article>
+          <article class="performance-card" tabindex="0" data-tip="Le guide consacré aux robots est le contenu le plus performant"><span class="performance-label">Pic de performance</span><div class="performance-value">1 500</div><p class="performance-note">leads pour le meilleur contenu</p></article>
+        </div>
+
+        <div class="kpi-layout">
+          <article class="kpi-card editorial-card reveal">
+            <span class="kpi-kicker">Performance éditoriale</span>
+            <h3>Leads générés par livre blanc</h3>
+            <div class="chart-metric-row"><span class="chart-metric" id="p2BarMetric">1 500 leads</span><span class="chart-growth" id="p2BarLabel">Meilleur contenu · Robots</span></div>
+            <div class="bar-layout">
+            <div class="chart-wrap">
+              <svg viewBox="0 0 720 410" role="img" aria-label="Nombre de leads générés par chacun des huit livres blancs">
+                <g class="axis"><line x1="55" y1="35" x2="700" y2="35"/><line x1="55" y1="117" x2="700" y2="117"/><line x1="55" y1="199" x2="700" y2="199"/><line x1="55" y1="281" x2="700" y2="281"/><line x1="55" y1="363" x2="700" y2="363"/></g>
+                <g class="axis-text"><text x="10" y="39">2 000</text><text x="10" y="121">1 500</text><text x="10" y="203">1 000</text><text x="25" y="285">500</text><text x="43" y="367">0</text></g>
+                <g>
+                  <rect class="bar" tabindex="0" aria-label="Hivernation et traitement : 900 leads" data-bar-index="0" data-bar-title="Hivernation &amp; traitement" data-bar-value="900" x="78" y="215" width="54" height="148" rx="8" fill="#E8B2AE"/>
+                  <rect class="bar" tabindex="0" aria-label="Couvertures de piscine : 780 leads" data-bar-index="1" data-bar-title="Couvertures de piscine" data-bar-value="780" x="154" y="235" width="54" height="128" rx="8" fill="#D85B61"/>
+                  <rect class="bar" tabindex="0" aria-label="Pompes à chaleur : 1 250 leads" data-bar-index="2" data-bar-title="Pompes à chaleur" data-bar-value="1250" x="230" y="158" width="54" height="205" rx="8" fill="#C94A52"/>
+                  <rect class="bar" tabindex="0" aria-label="Robots de piscine : 1 500 leads" data-bar-index="3" data-bar-title="Robots de piscine" data-bar-value="1500" x="306" y="117" width="54" height="246" rx="8" fill="#A51F2B"/>
+                  <rect class="bar" tabindex="0" aria-label="Piscines coques : 900 leads" data-bar-index="4" data-bar-title="Piscines coques" data-bar-value="900" x="382" y="215" width="54" height="148" rx="8" fill="#B8323C"/>
+                  <rect class="bar" tabindex="0" aria-label="Logiciels métier : 550 leads" data-bar-index="5" data-bar-title="Logiciels métier" data-bar-value="550" x="458" y="273" width="54" height="90" rx="8" fill="#8F1B25"/>
+                  <rect class="bar" tabindex="0" aria-label="Économies d’eau : 800 leads" data-bar-index="6" data-bar-title="Économies d’eau" data-bar-value="800" x="534" y="232" width="54" height="131" rx="8" fill="#5A2023"/>
+                  <rect class="bar" tabindex="0" aria-label="Formations : 650 leads" data-bar-index="7" data-bar-title="Formations" data-bar-value="650" x="610" y="256" width="54" height="107" rx="8" fill="#252523"/>
+                </g>
+                <g class="axis-text" text-anchor="middle" aria-hidden="true"><text x="105" y="390">01</text><text x="181" y="390">02</text><text x="257" y="390">03</text><text x="333" y="390">04</text><text x="409" y="390">05</text><text x="485" y="390">06</text><text x="561" y="390">07</text><text x="637" y="390">08</text></g>
+              </svg>
+            </div>
+            <ul class="chart-key"><li><button type="button" data-bar-index="0" aria-pressed="false"><b>01</b> Hivernation &amp; traitement</button></li><li><button type="button" data-bar-index="1" aria-pressed="false"><b>02</b> Couvertures de piscine</button></li><li><button type="button" data-bar-index="2" aria-pressed="false"><b>03</b> Pompes à chaleur</button></li><li><button type="button" data-bar-index="3" aria-pressed="false"><b>04</b> Robots de piscine</button></li><li><button type="button" data-bar-index="4" aria-pressed="false"><b>05</b> Piscines coques</button></li><li><button type="button" data-bar-index="5" aria-pressed="false"><b>06</b> Logiciels métier</button></li><li><button type="button" data-bar-index="6" aria-pressed="false"><b>07</b> Économies d’eau</button></li><li><button type="button" data-bar-index="7" aria-pressed="false"><b>08</b> Formations</button></li></ul>
+            </div>
+            <p class="chart-note">Survolez une barre ou sélectionnez son intitulé pour lire le résultat du livre blanc.</p>
+          </article>
+
+          <div class="donut-stack">
+            <article class="kpi-card donut-card reveal">
+              <span class="kpi-kicker">Acquisition</span><h3>Téléchargements par canal</h3>
+              <div class="donut-row"><div class="donut-canvas-wrap"><canvas id="p2ChannelChart" role="img" aria-label="Téléchargements : LinkedIn 44 %, landing pages 31 %, emailing 16 %, groupes Facebook 9 %"></canvas><div class="donut-center" aria-hidden="true"><span id="p2ChannelLabel">Tous les canaux</span><strong id="p2ChannelValue">100 %</strong></div></div>
+              <div class="donut-legend" id="p2ChannelLegend"></div></div>
+              <p class="chart-note">Survolez le graphique ou sa légende pour lire le détail par canal.</p>
+            </article>
+            <article class="kpi-card donut-card reveal">
+              <span class="kpi-kicker">Segmentation</span><h3>Leads par thématique</h3>
+              <div class="donut-row"><div class="donut-canvas-wrap"><canvas id="p2TopicChart" role="img" aria-label="Leads : entretien et traitement 36 %, équipement 34 %, digital et métier 19 %, construction 11 %"></canvas><div class="donut-center" aria-hidden="true"><span id="p2TopicLabel">Toutes les thématiques</span><strong id="p2TopicValue">100 %</strong></div></div>
+              <div class="donut-legend" id="p2TopicLegend"></div></div>
+              <p class="chart-note">Le centre du graphique s’actualise au passage de la souris.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">        <details class="data-table">
+          <summary>Lire les valeurs des graphiques sous forme de tableaux</summary>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Leads par livre blanc">
+            <table><caption>Leads par livre blanc : valeurs présentées dans le graphique</caption><thead><tr><th scope="col">Livre blanc</th><th scope="col">Leads</th></tr></thead><tbody>
+              <tr><th scope="row">Hivernation &amp; traitement</th><td>900</td></tr><tr><th scope="row">Couvertures de piscine</th><td>780</td></tr><tr><th scope="row">Pompes à chaleur</th><td>1 250</td></tr><tr><th scope="row">Robots de piscine</th><td>1 500</td></tr><tr><th scope="row">Piscines coques</th><td>900</td></tr><tr><th scope="row">Logiciels métier</th><td>550</td></tr><tr><th scope="row">Économies d’eau</th><td>800</td></tr><tr><th scope="row">Formations</th><td>650</td></tr>
+            </tbody></table>
+          </div>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Téléchargements par canal">
+            <table><caption>Répartition des téléchargements par canal</caption><thead><tr><th scope="col">Canal</th><th scope="col">Part</th></tr></thead><tbody><tr><th scope="row">LinkedIn</th><td>44 %</td></tr><tr><th scope="row">Landing pages</th><td>31 %</td></tr><tr><th scope="row">Emailing</th><td>16 %</td></tr><tr><th scope="row">Facebook</th><td>9 %</td></tr></tbody></table>
+          </div>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Leads par thématique">
+            <table><caption>Répartition des leads par thématique</caption><thead><tr><th scope="col">Thématique</th><th scope="col">Part</th></tr></thead><tbody><tr><th scope="row">Entretien et traitement</th><td>36 %</td></tr><tr><th scope="row">Équipement</th><td>34 %</td></tr><tr><th scope="row">Digital et métier</th><td>19 %</td></tr><tr><th scope="row">Construction</th><td>11 %</td></tr></tbody></table>
+          </div>
+        </details></div>
+
+    <section class="section">
+      <div class="wrap">
+        <span class="section-label reveal">Compétences mobilisées</span>
+        <h2 class="section-title reveal">Ce que ce projet a demandé</h2>
+        <div class="skills reveal"><span class="skill">Stratégie de contenu</span><span class="skill">Lead generation</span><span class="skill">Livre blanc</span><span class="skill">Landing pages</span><span class="skill">Email marketing</span><span class="skill">Social media B2B</span><span class="skill">Analyse des KPI</span></div>
+      </div>
+    </section>
+
+    
+
+    <div class="wrap project-nav reveal">
+      <a href="projet-1.html">← Projet précédent</a>
+      <a href="index.html#projets">Tous les projets</a>
+    </div>
+    <section class="next-project">
+      <div class="wrap"><a href="projet-3.html" class="next-card reveal"><span>Projet suivant</span><h2>Concevoir un produit innovant</h2><span class="next-button">Découvrir le projet →</span></a></div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="project-contact"><p>Et si on travaillait ensemble ?</p><div><a class="text-link" href="mailto:cloe.coquart@gmail.com">M’écrire ↗</a><a class="text-link" href="https://www.linkedin.com/in/cloe-coquart/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Cloé Coquart (nouvel onglet)">LinkedIn ↗</a></div></div>
+    <p>© 2026 Cloé Coquart – Portfolio marketing digital &amp; UX</p>
+    <a class="back-top text-link" href="#contenu">Retour en haut ↑</a>
+  </footer>
+
+  <script>
+    window.addEventListener('DOMContentLoaded',()=>{
+      document.body.classList.add('has-motion','js-ready');
+      const header=document.getElementById('siteHeader');
+      const progress=document.getElementById('scrollProgress');
+      const toggle=document.getElementById('navToggle');
+      const links=document.getElementById('navLinks');
+      const caseLinks=Array.from(document.querySelectorAll('#caseNav a'));
+      const caseSections=caseLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+      const closeMenu=()=>{toggle?.classList.remove('open');links?.classList.remove('open');toggle?.setAttribute('aria-expanded','false');toggle?.setAttribute('aria-label','Ouvrir le menu');document.body.style.overflow=''};
+      toggle?.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');document.body.style.overflow=open?'hidden':'';if(open)links.querySelector('a')?.focus()});
+      document.addEventListener('keydown',event=>{
+        if(!links?.classList.contains('open'))return;
+        if(event.key==='Escape'){closeMenu();toggle.focus()}
+        if(event.key==='Tab'){
+          const items=[toggle,...links.querySelectorAll('a')];
+          if(event.shiftKey&&document.activeElement===items[0]){event.preventDefault();items.at(-1).focus()}
+          else if(!event.shiftKey&&document.activeElement===items.at(-1)){event.preventDefault();items[0].focus()}
+        }
+      });
+      document.addEventListener('click',event=>{if(!links.contains(event.target)&&!toggle.contains(event.target))closeMenu()});
+      window.matchMedia('(max-width:900px)').addEventListener('change',closeMenu);
+      links?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+
+      const updateScroll=()=>{
+        header?.classList.toggle('scrolled',window.scrollY>10);
+        const available=document.documentElement.scrollHeight-window.innerHeight;
+        progress.style.width=`${available>0?(window.scrollY/available)*100:0}%`;
+        const marker=window.scrollY+(window.innerHeight*.36);
+        let activeSection=null;
+        caseSections.forEach(section=>{if(section.offsetTop<=marker)activeSection=section});
+        caseLinks.forEach(link=>{
+          const active=Boolean(activeSection&&link.getAttribute('href')===`#${activeSection.id}`);
+          link.classList.toggle('active',active);
+          if(active)link.setAttribute('aria-current','location');
+          else link.removeAttribute('aria-current');
+        });
+      };
+      updateScroll();
+      let scrollPending=false;
+      window.addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(()=>{updateScroll();scrollPending=false})}},{passive:true});
+      window.addEventListener('resize',updateScroll);
+
+      const marquee=document.querySelector('.marquee');
+      const marqueeTrack=marquee?.querySelector('.marquee-track');
+      const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
+      let reduceMotion=motionPreference.matches, hovering=false, keyboardPaused=false;
+      let offset=0,lastTime=0,marqueeFrame=0,speed=32;
+      const animateMarquee=now=>{
+        const delta=lastTime?Math.min((now-lastTime)/1000,.05):0;
+        lastTime=now;
+        speed+=((hovering?96:32)-speed)*Math.min(1,delta*5);
+        offset-=speed*delta;
+        const loopWidth=marqueeTrack.scrollWidth/2;
+        if(loopWidth&&-offset>=loopWidth)offset+=loopWidth;
+        marqueeTrack.style.transform=`translate3d(${offset}px,0,0)`;
+        marqueeFrame=requestAnimationFrame(animateMarquee);
+      };
+      const syncMarquee=()=>{
+        cancelAnimationFrame(marqueeFrame);lastTime=0;
+        if(!reduceMotion&&!keyboardPaused&&!document.hidden)marqueeFrame=requestAnimationFrame(animateMarquee);
+      };
+      if(marquee&&marqueeTrack){
+        marquee.setAttribute('tabindex','0');
+        marquee.setAttribute('aria-label','Compétences mobilisées. Survol : défilement accéléré. Entrée ou espace : arrêter ou reprendre.');
+        marquee.addEventListener('pointerenter',()=>{hovering=true});
+        marquee.addEventListener('pointerleave',()=>{hovering=false});
+        marquee.addEventListener('keydown',event=>{if(event.key===' '||event.key==='Enter'){event.preventDefault();keyboardPaused=!keyboardPaused;syncMarquee()}});
+        motionPreference.addEventListener('change',event=>{reduceMotion=event.matches;syncMarquee()});
+        document.addEventListener('visibilitychange',syncMarquee);
+        syncMarquee();
+      }
+
+      const newsletterWindow=document.querySelector('.newsletter-reader-window');
+      const newsletterFrame=document.querySelector('.newsletter-frame');
+      const newsletterMobile=window.matchMedia('(max-width:580px)');
+      const fitNewsletter=()=>{
+        if(!newsletterWindow||!newsletterFrame)return;
+        if(newsletterMobile.matches){
+          newsletterFrame.style.width='100%';
+          newsletterFrame.style.height='100%';
+          newsletterFrame.style.transform='none';
+          return;
+        }
+        const frameWidth=680;
+        const availableWidth=Math.max(1,newsletterWindow.clientWidth-32);
+        const displayWidth=Math.min(availableWidth,952);
+        const scale=displayWidth/frameWidth;
+        newsletterFrame.style.width=`${frameWidth}px`;
+        newsletterFrame.style.height=`${newsletterWindow.clientHeight/scale}px`;
+        newsletterFrame.style.transform=`scale(${scale})`;
+      };
+      newsletterFrame?.addEventListener('load',()=>{
+        try{
+          newsletterFrame.contentDocument.documentElement.style.overflowX='hidden';
+          newsletterFrame.contentDocument.body.style.overflowX='hidden';
+        }catch(error){}
+        fitNewsletter();
+      });
+      if(newsletterWindow&&'ResizeObserver' in window)new ResizeObserver(fitNewsletter).observe(newsletterWindow);
+      else window.addEventListener('resize',fitNewsletter,{passive:true});
+      newsletterMobile.addEventListener?.('change',fitNewsletter);
+      fitNewsletter();
+
+      const revealElements=document.querySelectorAll('.reveal,.kpi-card');
+      if('IntersectionObserver' in window){
+        const observer=new IntersectionObserver((entries,current)=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');current.unobserve(entry.target)}}),{threshold:.1,rootMargin:'0px 0px -45px'});
+        revealElements.forEach(element=>observer.observe(element));
+      }else revealElements.forEach(element=>element.classList.add('is-visible'));
+
+      document.querySelectorAll('.media-slot img').forEach(image=>{
+        const revealImage=()=>image.parentElement.classList.add('has-media');
+        if(image.complete&&image.naturalWidth)revealImage();
+        image.addEventListener('load',revealImage);
+        image.addEventListener('error',()=>image.remove());
+      });
+
+      const tipHosts=[...document.querySelectorAll('.funnel-step[data-tip],.performance-card[data-tip]')];
+      tipHosts.forEach((host,index)=>{
+        const tip=document.createElement('span');
+        tip.className='inline-tip';tip.id=`p2-tip-${index}`;tip.setAttribute('role','tooltip');tip.textContent=host.dataset.tip;
+        host.setAttribute('aria-describedby',tip.id);
+        const marker=document.createElement('span');marker.className='info-mark';marker.setAttribute('aria-hidden','true');marker.textContent='i';
+        host.append(marker,tip);
+        const restore=()=>host.classList.remove('tip-dismissed');
+        host.addEventListener('pointerenter',restore);
+        host.addEventListener('focusin',restore);
+        host.addEventListener('click',restore);
+      });
+      document.addEventListener('keydown',event=>{if(event.key==='Escape')tipHosts.forEach(host=>host.classList.add('tip-dismissed'))});
+
+      const formatter=new Intl.NumberFormat('fr-FR');
+      const barWrap=document.querySelector('.chart-wrap');
+      const bars=[...document.querySelectorAll('rect.bar[data-bar-index]')];
+      const barKeys=[...document.querySelectorAll('.chart-key [data-bar-index]')];
+      const barMetric=document.getElementById('p2BarMetric');
+      const barLabel=document.getElementById('p2BarLabel');
+      const activateBar=index=>{
+        const bar=bars.find(item=>Number(item.dataset.barIndex)===index);
+        if(!bar)return;
+        barWrap?.classList.add('has-active');
+        bars.forEach(item=>item.classList.toggle('active',Number(item.dataset.barIndex)===index));
+        barKeys.forEach(item=>{const active=Number(item.dataset.barIndex)===index;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active))});
+        if(barMetric)barMetric.textContent=`${formatter.format(Number(bar.dataset.barValue))} leads`;
+        if(barLabel)barLabel.textContent=bar.dataset.barTitle;
+      };
+      const resetBars=()=>{
+        barWrap?.classList.remove('has-active');
+        bars.forEach(item=>item.classList.remove('active'));
+        barKeys.forEach(item=>{item.classList.remove('active');item.setAttribute('aria-pressed','false')});
+        if(barMetric)barMetric.textContent='1 500 leads';
+        if(barLabel)barLabel.textContent='Meilleur contenu · Robots';
+      };
+      [...bars,...barKeys].forEach(item=>{
+        const activate=()=>activateBar(Number(item.dataset.barIndex));
+        item.addEventListener('pointerenter',activate);
+        item.addEventListener('pointerleave',resetBars);
+        item.addEventListener('focus',activate);
+        item.addEventListener('click',activate);
+        item.addEventListener('keydown',event=>{if(event.key==='Escape')resetBars()});
+        item.addEventListener('blur',resetBars);
+      });
+
+      let chartsReady=false;
+      const initDonutCharts=()=>{
+        if(chartsReady)return;
+        chartsReady=true;
+        if(typeof Chart==='undefined'){
+          document.querySelectorAll('.donut-row').forEach(row=>{
+            row.hidden=true;
+            row.style.display='none';
+            const note=document.createElement('p');note.className='measurement-note';note.textContent='Graphique interactif indisponible. Toutes les valeurs figurent dans les tableaux ci-dessous.';
+            row.after(note);
+          });
+          return;
+        }
+        const paper=getComputedStyle(document.documentElement).getPropertyValue('--paper').trim()||'#FFFDF8';
+        const createDonut=({canvasId,legendId,labelId,valueId,labels,values,colors,tipSuffix})=>{
+          const canvas=document.getElementById(canvasId);
+          const legend=document.getElementById(legendId);
+          const centerLabel=document.getElementById(labelId);
+          const centerValue=document.getElementById(valueId);
+          if(!canvas||!legend||!centerLabel||!centerValue)return;
+          let chart;
+          const updateCenter=index=>{
+            centerLabel.textContent=index<0?(canvasId==='p2ChannelChart'?'Tous les canaux':'Toutes les thématiques'):labels[index];
+            centerValue.textContent=index<0?'100 %':`${values[index]} %`;
+            [...legend.children].forEach((item,itemIndex)=>{item.classList.toggle('active',itemIndex===index);item.setAttribute('aria-pressed',String(itemIndex===index))});
+          };
+          labels.forEach((label,index)=>{
+            const item=document.createElement('button');
+            item.type='button';
+            item.className='donut-item';
+            item.setAttribute('aria-pressed','false');
+            item.setAttribute('aria-controls',canvasId);
+            item.tabIndex=0;
+            item.setAttribute('aria-label',`${label} : ${values[index]} % ${tipSuffix}`);
+            item.innerHTML=`<i style="background:${colors[index]}"></i><span>${label}</span><b>${values[index]} %</b>`;
+            const activate=()=>{updateCenter(index);chart.setActiveElements([{datasetIndex:0,index}]);chart.update()};
+            const reset=()=>{updateCenter(-1);chart.setActiveElements([]);chart.update()};
+            item.addEventListener('pointerenter',activate);
+            item.addEventListener('pointerleave',reset);
+            item.addEventListener('focus',activate);
+            item.addEventListener('blur',reset);
+            item.addEventListener('click',activate);
+            item.addEventListener('keydown',event=>{if(event.key==='Escape')reset()});
+            legend.appendChild(item);
+          });
+          chart=new Chart(canvas,{
+            type:'doughnut',
+            data:{labels,datasets:[{data:values,backgroundColor:colors,borderColor:paper,borderWidth:4,hoverOffset:10,borderRadius:4}]},
+            options:{
+              responsive:true,
+              maintainAspectRatio:false,
+              cutout:'63%',
+              animation:{duration:motionPreference.matches?0:500,easing:'easeOutQuart'},
+              interaction:{mode:'nearest',intersect:true},
+              plugins:{legend:{display:false},tooltip:{displayColors:false,backgroundColor:'#252523',titleFont:{family:'Poppins',size:12},bodyFont:{family:'Poppins',size:12},padding:11,cornerRadius:9,callbacks:{label:context=>`${context.label} : ${context.parsed} %`}}},
+              onHover:(event,elements)=>updateCenter(elements.length?elements[0].index:-1)
+            }
+          });
+          canvas.addEventListener('mouseleave',()=>updateCenter(-1));
+          motionPreference.addEventListener('change',event=>{chart.options.animation.duration=event.matches?0:500;chart.update('none')});
+        };
+        createDonut({canvasId:'p2ChannelChart',legendId:'p2ChannelLegend',labelId:'p2ChannelLabel',valueId:'p2ChannelValue',labels:['LinkedIn','Landing pages','Emailing','Facebook'],values:[44,31,16,9],colors:['#64121C','#A51F2B','#D85B61','#E8B2AE'],tipSuffix:'des téléchargements générés'});
+        createDonut({canvasId:'p2TopicChart',legendId:'p2TopicLegend',labelId:'p2TopicLabel',valueId:'p2TopicValue',labels:['Entretien','Équipement','Digital','Construction'],values:[36,34,19,11],colors:['#8A1723','#B52D38','#D66568','#E7ACA8'],tipSuffix:'des leads collectés'});
+      };
+      const chartArea=document.querySelector('.kpi-layout');
+      if(chartArea&&'IntersectionObserver' in window){
+        const chartObserver=new IntersectionObserver((entries,current)=>entries.forEach(entry=>{if(entry.isIntersecting){initDonutCharts();current.disconnect()}}),{threshold:.12});
+        chartObserver.observe(chartArea);
+      }else initDonutCharts();
+    });
+  </script>
+
+<script>
+(function(){
+  var fine = window.matchMedia('(pointer:fine)').matches;
+  var reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!fine || reduced) return;
+  // Effet magnetique sur les CTA principaux
+  document.querySelectorAll('.btn-dark,.btn-outline,.contact-btn,.home-button').forEach(function(el){
+    if(el.closest('header')) return;
+    el.style.transition = 'transform .3s cubic-bezier(.2,.8,.2,1)';
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left - r.width/2) * 0.25;
+      var y = (e.clientY - r.top - r.height/2) * 0.35;
+      el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    });
+    el.addEventListener('mouseleave', function(){ el.style.transform = 'translate(0,0)'; });
+  });
+})();
+</script>
+
+<div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Visuel agrandi" aria-hidden="true">
+  <button class="img-lightbox-close" id="imgLightboxClose" type="button" aria-label="Fermer">&times;</button>
+  <button class="img-lightbox-arrow img-lightbox-prev" id="imgLightboxPrev" type="button" aria-label="Visuel precedent">&larr;</button>
+  <div class="img-lightbox-inner"><img id="imgLightboxImg" src="" alt=""></div>
+  <button class="img-lightbox-arrow img-lightbox-next" id="imgLightboxNext" type="button" aria-label="Visuel suivant">&rarr;</button>
+  <span class="img-lightbox-count" id="imgLightboxCount"></span>
+</div>
+<script>
+(function(){
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('img.zoomable'));
+  if(!imgs.length) return;
+  var lb = document.getElementById('imgLightbox');
+  var lbImg = document.getElementById('imgLightboxImg');
+  var lbClose = document.getElementById('imgLightboxClose');
+  var lbPrev = document.getElementById('imgLightboxPrev');
+  var lbNext = document.getElementById('imgLightboxNext');
+  var lbCount = document.getElementById('imgLightboxCount');
+  var current = 0, lastFocus = null;
+
+  function open(i){
+    current = (i + imgs.length) % imgs.length;
+    lbImg.src = imgs[current].currentSrc || imgs[current].src;
+    lbImg.alt = imgs[current].alt || '';
+    lbCount.textContent = String(current+1).padStart(2,'0') + ' / ' + String(imgs.length).padStart(2,'0');
+    lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+    lastFocus = document.activeElement; lbClose.focus();
+    document.body.style.overflow = 'hidden';
+    var showNav = imgs.length > 1 ? '' : 'none';
+    lbPrev.style.display = showNav; lbNext.style.display = showNav;
+    lbCount.style.display = imgs.length > 1 ? '' : 'none';
+  }
+  function close(){
+    lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(lastFocus) lastFocus.focus();
+  }
+  imgs.forEach(function(img, i){
+    img.setAttribute('tabindex','0');
+    img.setAttribute('role','button');
+    if(!img.hasAttribute('aria-label')) img.setAttribute('aria-label','Agrandir l\'image');
+    img.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); open(i); });
+    img.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(i); } });
+  });
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', function(){ open(current-1); });
+  lbNext.addEventListener('click', function(){ open(current+1); });
+  lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowLeft') open(current-1);
+    if(e.key==='ArrowRight') open(current+1);
+  });
+
+  // Effet tilt 3D leger sur les visuels (desactive si souris imprecise ou animations reduites)
+  if(fine && !reduced){
+    document.querySelectorAll('.showcase-card:not(.email)').forEach(function(el){
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transition = 'transform .12s ease-out';
+        el.style.transform = 'translateY(-9px) perspective(900px) rotateX(' + (py * -5) + 'deg) rotateY(' + (px * 5) + 'deg)';
+      });
+      el.addEventListener('mouseleave', function(){
+        el.style.transition = 'transform .4s cubic-bezier(.2,.8,.2,1)';
+        el.style.transform = '';
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
